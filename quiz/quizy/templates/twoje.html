@@ -1,0 +1,22 @@
+{% extends "szablon.html" %}
+
+{% block content %}
+
+
+
+<div class="container" id="cont3" style="list-style-position: inside;">
+  <h1 style="margin: 15px;">Twoje Pytania</h1>
+ <ol>
+    {% for p in pytania %}
+      <li style="margin: 10px;">
+      
+        {{ p.pytanie }} <a href="{{ url_for('usun', pid=p.id ) }}"><button id="us"> Usuń</button></a>
+        <br>
+        {% for o in p.odpowiedzi %}
+            {{ o.odpowiedz }}<span style="margin: 5px;"></span>
+        {% endfor %}
+      </li>
+    {% endfor %}
+    </ol> 
+</div>
+{% endblock content %}

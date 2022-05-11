@@ -1,0 +1,23 @@
+{% extends "szablon.html" %}
+
+{% block content %}
+<div class="container" id="cont3">
+  <h1 style="margin: 15px;">Dodaj pytanie</h1>
+<form method="POST" action="" style="display: inline-block;">
+    {{ form.csrf_token }}
+
+    <label>Podaj pytanie:</label><br>
+    {{ form.pytanie(id="dod") }}<br>
+    
+    <label>Podaj odpowiedzi i zaznacz poprawną:</label><br>
+    <ol>
+    {% for o in form.odpowiedzi %}
+      <li>{{ radio[loop.index0] (id="rd") }} {{ o(id="dod") }}</li>
+    {% endfor %}
+    </ol>
+
+    <button type="submit" id="qz">Zapisz pytanie</button>
+  </form>  
+
+</div>
+{% endblock content %}

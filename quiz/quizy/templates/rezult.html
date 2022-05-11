@@ -1,0 +1,22 @@
+{% extends "szablon.html" %}
+
+{% block content %}
+
+<div class="container" id="cont2">
+  <form method="POST">   
+  <h1 style="margin: 30px;">Twój wynik</h1>
+ <h4>Punkty: {{ punkty }}</h4>
+ <p>Procent: {{ percent }}%</p>
+ <p>Poprawne odpowiedzi: {{ poprawne }}</p>
+ <p>Błędne odpowiedzi: {{ zle }}</p>
+ 
+ {% if current_user.is_authenticated %}
+    <a href="{{ url_for('ranking') }}"><button type="submit" id="us" style="margin: 20px;">Wyślij</button></a>
+  {% endif %}
+</form> 
+<a href="{{ url_for('index') }}"><button id="us" style="margin: 20px;">Wróć</button></a>  
+</div>
+    
+ 
+
+{% endblock content %}

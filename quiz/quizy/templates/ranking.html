@@ -1,0 +1,24 @@
+{% extends "szablon.html" %}
+
+{% block content %}
+
+<div class="container" id="cont">
+    <h1 style="margin: 20px; text-align:center">Ranking</h1>
+    <table>
+    
+    <tr id="brdr">
+        <th id="brdr">Nazwa użytkownika</th>
+        <th id="brdr">Ilość punktów</th>
+      </tr>
+      {% for r in ranking %}
+      <tr id="brdr">
+
+        <td id="brdr">{{ r.pozycja }}</td>
+        <td id="brdr">{{ r.pkt }}</td>
+
+        </tr>
+      
+    {% endfor %}
+</table>
+</div>
+{% endblock content %}

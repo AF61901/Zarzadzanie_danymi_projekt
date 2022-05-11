@@ -1,0 +1,30 @@
+{% extends "szablon.html" %}
+
+{% block content %}
+<div class="container" id="cont3">
+<h1 style="margin: 15px;">Quiz:</h1>
+
+<form method="POST">
+ 
+  {% for p in pytania %}
+    <p style="margin-top: 35px;">
+
+      {{ p.pytanie }}
+      <br>
+  
+      {% for o in p.odpowiedzi %}
+        <label>
+
+          <input type="radio" value="{{ o.odpowiedz }}" name="{{ p.id }}" required>
+          {{ o.odpowiedz }}
+        </label>
+        <br>
+      {% endfor %}
+    </p>
+  {% endfor %}
+
+
+<button type="submit" id="qz">Sprawdź odpowiedzi</button>
+</form>
+</div>
+{% endblock content %}}
