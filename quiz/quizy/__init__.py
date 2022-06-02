@@ -14,7 +14,7 @@ app.config.update(dict(
     SQLALCHEMY_DATABASE_URI='sqlite:///' +
                             os.path.join(app.root_path, 'baza.db'),
     SQLALCHEMY_TRACK_MODIFICATIONS=False,
-    TYTUL='Quiz ORM SQLAlchemy'
+    TYTUL='Quizy'
 ))
 
 
