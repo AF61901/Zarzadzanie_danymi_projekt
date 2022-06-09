@@ -1,10 +1,12 @@
 {% extends "szablon.html" %}
 
 {% block content %}
+<div class="container">
   <form method="POST" action="{{ url_for('usun', pid=pytanie.id) }}">
     
     <p style="margin-top: 30px;">Czy na pewno chcesz usunąć pytanie?</p>
     <button id="us" type="submit">Usuń</button>
   </form>
   <a href="{{ url_for('twoje') }}"><button id="us">Anuluj</button></a>
+</div>
 {% endblock %}

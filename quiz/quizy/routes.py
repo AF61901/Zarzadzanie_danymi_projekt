@@ -6,6 +6,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy.sql.expression import func
 
 
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -43,7 +44,7 @@ def rejestruj():
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
 
-    pytania = Pytanie.query.join(Odpowiedz).order_by(func.random()).limit(12).offset(0)
+    pytania = Pytanie.query.join(Odpowiedz).order_by(func.random()).limit(12).all()
     if not pytania:
         flash('Brak pytań w bazie.', 'danger')
         return redirect(url_for('index'))
@@ -65,6 +66,7 @@ def quiz():
             else:
                 zle += 1
             percent = poprawne/(total) *100
+            percent = round(percent, 2)
            
             
         return redirect(url_for('rezult', punkty=punkty, poprawne=poprawne, zle=zle, percent=percent))
